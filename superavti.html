@@ -10,12 +10,15 @@
         *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
         body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
         .bg-animation{position:fixed;inset:0;z-index:-2;background:#000;overflow:hidden}
-        .bg-animation::before{content:'';position:absolute;width:150%;height:150%;top:-25%;left:-25%;background:radial-gradient(circle at 30% 40%,rgba(239,68,68,.12) 0%,transparent 40%),radial-gradient(circle at 70% 60%,rgba(249,115,22,.08) 0%,transparent 40%);animation:bgMove 25s ease-in-out infinite alternate}
-        @keyframes bgMove{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,3%) scale(1.05)}100%{transform:translate(5%,-3%) scale(1.02)}}
-        .orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.22;z-index:-1;animation:float 20s ease-in-out infinite}
-        .orb-1{width:380px;height:380px;background:#ef4444;top:15%;left:10%}
-        .orb-2{width:280px;height:280px;background:#f97316;bottom:20%;right:10%;animation-delay:-6s}
-        @keyframes float{0%,100%{transform:translate(0,0)}33%{transform:translate(30px,-40px)}66%{transform:translate(-20px,20px)}}
+        .bg-animation::before{content:'';position:absolute;width:180%;height:180%;top:-40%;left:-40%;background:radial-gradient(circle at 20% 30%,rgba(239,68,68,.2) 0%,transparent 35%),radial-gradient(circle at 80% 70%,rgba(249,115,22,.16) 0%,transparent 35%),radial-gradient(circle at 50% 50%,rgba(220,38,38,.1) 0%,transparent 45%),radial-gradient(circle at 70% 20%,rgba(251,191,36,.08) 0%,transparent 30%);animation:bgMorph 22s ease-in-out infinite alternate}
+        .bg-animation::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 40% at 30% 60%,rgba(255,50,50,.07) 0%,transparent 50%);animation:bgPulse 14s ease-in-out infinite alternate}
+        @keyframes bgMorph{0%{transform:translate(0,0) scale(1) rotate(0deg)}25%{transform:translate(-3%,2%) scale(1.05)}50%{transform:translate(4%,-3%) scale(1.08)}75%{transform:translate(-2%,3%) scale(1.03)}100%{transform:translate(3%,-2%) scale(1.06)}}
+        @keyframes bgPulse{0%{opacity:.6}50%{opacity:1}100%{opacity:.7}}
+        .orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.26;z-index:-1;animation:float 20s ease-in-out infinite}
+        .orb-1{width:420px;height:420px;background:linear-gradient(135deg,#ef4444,#dc2626);top:10%;left:8%}
+        .orb-2{width:320px;height:320px;background:linear-gradient(135deg,#f97316,#ea580c);bottom:15%;right:8%;animation-delay:-5s}
+        .orb-3{width:260px;height:260px;background:linear-gradient(135deg,#fbbf24,#f59e0b);top:50%;left:40%;animation-delay:-10s;opacity:.18}
+        @keyframes float{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(35px,-45px) scale(1.1)}50%{transform:translate(-25px,25px) scale(.93)}75%{transform:translate(20px,35px) scale(1.06)}}
         nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;background:rgba(0,0,0,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
         .nav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
         .logo{font-size:1.25rem;font-weight:600;color:var(--text);text-decoration:none}.logo span{color:#2997ff}
@@ -47,6 +50,7 @@
     <div class="bg-animation"></div>
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
     <nav>
         <div class="nav-inner">
             <a href="index.html" class="logo">Tomaž <span>Dolar</span></a>
