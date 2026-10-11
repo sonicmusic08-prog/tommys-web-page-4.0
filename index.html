@@ -5,595 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tomaž Dolar | Digitalni Polimat & Soustvarjalec</title>
     <meta name="description" content="Tomaž Dolar – moderni digitalni polimat, renesančni ustvarjalec na presečišču tehnologije, oblikovanja, gaminga, superavtov in umetnosti.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #000000;
-            --bg-secondary: #0a0a0a;
             --text: #f5f5f7;
             --text-secondary: #a1a1a6;
             --accent: #2997ff;
             --accent-soft: rgba(41, 151, 255, 0.15);
             --card: rgba(255, 255, 255, 0.04);
             --border: rgba(255, 255, 255, 0.08);
-            --gradient-1: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            --gradient-2: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            --gradient-3: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
-            --gradient-4: linear-gradient(135deg, #232526 0%, #414345 100%);
-            --gradient-5: linear-gradient(135deg, #141e30 0%, #243b55 100%);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
         }
-
-        /* Animated background */
         .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: var(--bg);
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+            background: var(--bg); overflow: hidden;
         }
-
         .bg-animation::before {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            top: -25%;
-            left: -25%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(41, 151, 255, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(147, 51, 234, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.06) 0%, transparent 50%);
+            content: ''; position: absolute; width: 150%; height: 150%; top: -25%; left: -25%;
+            background: radial-gradient(circle at 20% 30%, rgba(41,151,255,0.12) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(147,51,234,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 50%, rgba(16,185,129,0.06) 0%, transparent 50%);
             animation: bgMove 25s ease-in-out infinite alternate;
         }
-
-        .bg-animation::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at top, rgba(255,255,255,0.03) 0%, transparent 60%),
-                radial-gradient(ellipse at bottom, rgba(0,0,0,0.4) 0%, transparent 60%);
-        }
-
         @keyframes bgMove {
-            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            50% { transform: translate(-5%, 3%) rotate(2deg) scale(1.05); }
-            100% { transform: translate(5%, -3%) rotate(-2deg) scale(1.02); }
+            0% { transform: translate(0,0) scale(1); }
+            50% { transform: translate(-5%,3%) scale(1.05); }
+            100% { transform: translate(5%,-3%) scale(1.02); }
         }
-
-        /* Floating orbs */
         .orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.25;
-            z-index: -1;
+            position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.25; z-index: -1;
             animation: float 20s ease-in-out infinite;
         }
-
-        .orb-1 {
-            width: 400px;
-            height: 400px;
-            background: #2997ff;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 300px;
-            height: 300px;
-            background: #9333ea;
-            top: 60%;
-            right: 15%;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            width: 250px;
-            height: 250px;
-            background: #10b981;
-            bottom: 10%;
-            left: 30%;
-            animation-delay: -10s;
-        }
-
+        .orb-1 { width: 400px; height: 400px; background: #2997ff; top: 10%; left: 10%; }
+        .orb-2 { width: 300px; height: 300px; background: #9333ea; top: 60%; right: 15%; animation-delay: -5s; }
+        .orb-3 { width: 250px; height: 250px; background: #10b981; bottom: 10%; left: 30%; animation-delay: -10s; }
         @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -40px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.95); }
+            0%, 100% { transform: translate(0,0) scale(1); }
+            33% { transform: translate(30px,-40px) scale(1.1); }
+            66% { transform: translate(-20px,20px) scale(0.95); }
         }
-
-        /* Navigation */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 2rem;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 2rem;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border);
         }
-
-        nav.scrolled {
-            padding: 0.7rem 2rem;
-            background: rgba(0, 0, 0, 0.85);
-        }
-
-        .nav-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 400;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
+        .nav-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.25rem; font-weight: 600; color: var(--text); text-decoration: none; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; gap: 1.25rem; list-style: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text); }
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 4rem;
-            position: relative;
-            text-align: center;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: 8rem 2rem 4rem; text-align: center;
         }
-
-        .hero-content {
-            max-width: 900px;
-            animation: fadeUp 1s ease-out;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        .hero-content { max-width: 900px; animation: fadeUp 1s ease-out; }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         .hero-badge {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: var(--accent-soft);
-            color: var(--accent);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.02em;
+            display: inline-block; padding: 0.4rem 1rem; background: var(--accent-soft);
+            color: var(--accent); border-radius: 100px; font-size: 0.85rem; font-weight: 500; margin-bottom: 1.5rem;
         }
-
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.1;
-            margin-bottom: 1.25rem;
-            background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 700; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1.25rem;
+            background: linear-gradient(180deg, #fff 0%, #a1a1a6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .hero .subtitle {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
-            color: var(--text-secondary);
-            font-weight: 400;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2.5rem;
-        }
-
+        .hero .subtitle { font-size: clamp(1.2rem, 3vw, 1.6rem); color: var(--text-secondary); margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem; }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.9rem 1.8rem;
-            border-radius: 980px;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.9rem 1.8rem; border-radius: 980px;
+            font-size: 1rem; font-weight: 500; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer;
         }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #1a7fe0;
-            transform: scale(1.03);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.15);
-            transform: scale(1.03);
-        }
-
-        /* Section common */
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .section-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            aspect-ratio: 1;
-            background: var(--card);
-            border: 1px solid var(--border);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .about-image .placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            font-size: 4rem;
-            color: var(--text-secondary);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.25rem;
-            letter-spacing: -0.02em;
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
-        }
-
-        .about-text .highlight {
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        /* Cards grid */
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: #1a7fe0; transform: scale(1.03); }
+        .btn-secondary { background: rgba(255,255,255,0.1); color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.15); transform: scale(1.03); }
+        section { padding: 5rem 2rem; }
+        .section-inner { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.75rem; }
+        .section-header p { color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
         .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
         }
-
         .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
+            background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); cursor: pointer; text-decoration: none; color: inherit; display: block;
         }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255,255,255,0.15);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .card-img {
-            aspect-ratio: 16/10;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .card:hover .card-img img {
-            transform: scale(1.08);
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        .card-body h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.01em;
-        }
-
-        .card-body p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            aspect-ratio: 1;
-            border-radius: 16px;
-            overflow: hidden;
-            position: relative;
-            border: 1px solid var(--border);
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Video embeds */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .video-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .video-info {
-            padding: 1.25rem;
-        }
-
-        .video-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .video-info p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Category sections with different bg */
-        .section-tech { --section-accent: #2997ff; }
-        .section-cars { --section-accent: #ef4444; }
-        .section-gaming { --section-accent: #8b5cf6; }
-        .section-creative { --section-accent: #ec4899; }
-        .section-apple { --section-accent: #a1a1a6; }
-        .section-space { --section-accent: #6366f1; }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--section-accent, var(--accent));
-            margin-bottom: 0.75rem;
-        }
-
-        /* Description block */
-        .desc-block {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .desc-block h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .desc-block p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            padding: 4rem 2rem;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* Responsive */
+        .card:hover { transform: translateY(-8px); border-color: rgba(255,255,255,0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .card-img { aspect-ratio: 16/10; overflow: hidden; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .card:hover .card-img img { transform: scale(1.08); }
+        .card-body { padding: 1.5rem; }
+        .card-body h3 { font-size: 1.25rem; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+        .card-body p { color: var(--text-secondary); font-size: 0.95rem; }
+        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: center; }
+        .about-image { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 1; background: var(--card); border: 1px solid var(--border); }
+        .about-image .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a2e, #16213e); font-size: 4rem; color: var(--text-secondary); }
+        .about-text h3 { font-size: 1.8rem; margin-bottom: 1.25rem; }
+        .about-text p { color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 1.05rem; }
+        .about-text .highlight { color: var(--text); font-weight: 500; }
+        footer { padding: 4rem 2rem; border-top: 1px solid var(--border); text-align: center; }
+        footer p { color: var(--text-secondary); font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
         @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .nav-links {
-                display: none;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(0,0,0,0.95);
-                padding: 1.5rem;
-                gap: 1rem;
-            }
-        }
-
-        /* Smooth reveal on scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -603,24 +125,21 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
 
-    <nav id="navbar">
+    <nav>
         <div class="nav-inner">
-            <a href="#" class="logo">Tomaž <span>Dolar</span></a>
-            <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+            <a href="index.html" class="logo">Tomaž <span>Dolar</span></a>
             <ul class="nav-links">
                 <li><a href="#o-meni">O meni</a></li>
-                <li><a href="#tehnologija">Tehnologija</a></li>
-                <li><a href="#superavti">Superavti</a></li>
-                <li><a href="#gaming">Gaming</a></li>
-                <li><a href="#kreativnost">Kreativnost</a></li>
-                <li><a href="#apple">Apple</a></li>
-                <li><a href="#astronomija">Astronomija</a></li>
-                <li><a href="#youtube">YouTube</a></li>
+                <li><a href="tehnologija.html">Tehnologija</a></li>
+                <li><a href="superavti.html">Superavti</a></li>
+                <li><a href="gaming.html">Gaming</a></li>
+                <li><a href="kreativnost.html">Kreativnost</a></li>
+                <li><a href="apple.html">Apple</a></li>
+                <li><a href="astronomija.html">Astronomija</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">Želim biti njen soustvarjalec</div>
@@ -628,19 +147,17 @@
             <p class="subtitle">Moderni digitalni polimat & renesančni ustvarjalec.<br>
             Na presečišču tehnologije, oblikovanja, gaminga, superavtov in umetnosti.</p>
             <div class="hero-cta">
-                <a href="#o-meni" class="btn btn-primary">Spoznaj me</a>
+                <a href="#poglavja" class="btn btn-primary">Razišči poglavja</a>
                 <a href="https://www.youtube.com/@TomazDolar07" target="_blank" class="btn btn-secondary">YouTube kanal</a>
             </div>
         </div>
     </section>
 
-    <!-- O MENI -->
     <section id="o-meni">
         <div class="section-inner">
-            <div class="about-grid reveal">
+            <div class="about-grid">
                 <div class="about-image">
                     <div class="placeholder">TD</div>
-                    <!-- Zamenjaj z lastno sliko: <img src="tvoja-slika.jpg" alt="Tomaž Dolar"> -->
                 </div>
                 <div class="about-text">
                     <h3>Digitalni renesančni človek</h3>
@@ -652,311 +169,37 @@
         </div>
     </section>
 
-    <!-- TEHNOLOGIJA -->
-    <section id="tehnologija" class="section-tech">
+    <section id="poglavja">
         <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">Tehnologija</span>
-                <h2>Prihodnost je že tukaj</h2>
-                <p>Od Apple ekosistema do lokalne umetne inteligence, sim rigov in najnovejših inovacij – tehnologija je moj ustvarjalni laboratorij.</p>
+            <div class="section-header">
+                <h2>Poglavja</h2>
+                <p>Klikni na katero koli področje in odpre se namenska podstran z opisi, videi in 15 slikami.</p>
             </div>
-
-            <div class="desc-block reveal">
-                <h3>Tehnološki ekosistem</h3>
-                <p>Živim v hibridnem tehnološkem ekosistemu, kjer se Apple naprave, močni računalniki, gaming setupi in pametni dom prepletajo v harmonično celoto. Verjamem v specializacijo naprav – vsaka ima svojo vlogo in skupaj ustvarjajo digitalno produktivnost na najvišji ravni.</p>
-                <p>Od Mac Mini M-serije, iPada za ustvarjanje, iPhonea kot mobilnega centra, do lokalne AI na zmogljivih strojih – vsak kos opreme je izbran z namenom.</p>
-            </div>
-
-            <div class="cards-grid reveal">
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80" alt="MacBook"></div>
-                    <div class="card-body"><h3>Apple Ekosistem</h3><p>Seamless povezovanje med iPhone, iPad, Mac in Apple Watch. Produktivnost na najvišji ravni.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80" alt="iPhone"></div>
-                    <div class="card-body"><h3>iPhone</h3><p>Mobilni center mojega digitalnega življenja. Kamera, produktivnost in ustvarjalnost v žepu.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=600&q=80" alt="iPad"></div>
-                    <div class="card-body"><h3>iPad</h3><p>Najboljše orodje za risanje, beleženje idej in ustvarjanje na poti.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=600&q=80" alt="iMac"></div>
-                    <div class="card-body"><h3>iMac & Mac Studio</h3><p>Zmogljivost M-serije čipov za lokalno umetno inteligenco in ustvarjanje.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=600&q=80" alt="PlayStation"></div>
-                    <div class="card-body"><h3>PlayStation</h3><p>Konzole naslednje generacije – PS5 in prihodnost igranja.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600&q=80" alt="Gaming Setup"></div>
-                    <div class="card-body"><h3>Gaming Setups</h3><p>Od RGB osvetlitve do profesionalnih setupov – prostor, ki navdihuje.</p></div>
-                </div>
-            </div>
-
-            <div class="gallery reveal">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80" alt="Tech 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400&q=80" alt="Tech 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&q=80" alt="Tech 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=400&q=80" alt="Tech 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80" alt="Tech 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80" alt="Tech 6"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&q=80" alt="Tech 7"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80" alt="Tech 8"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SUPERAVTI -->
-    <section id="superavti" class="section-cars">
-        <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">Superavti</span>
-                <h2>Hitrost, dizajn in adrenalin</h2>
-                <p>V The Crew Motorfest vozim McLaren, Ferrari, Lamborghini in druge legende. Superavti so umetnost v gibanju.</p>
-            </div>
-
-            <div class="desc-block reveal">
-                <h3>Dinastije superšportnikov</h3>
-                <p>Ferrari, Lamborghini, McLaren, AMG – vsaka znamka ima svojo dušo. V igri The Crew Motorfest raziskujem odprti svet Havajev z najlepšimi avtomobili na svetu. Od LaFerrari do Revuelto, od P1 do Senne – vsaka vožnja je doživetje.</p>
-                <p>Sim racing in virtualna realnost mi omogočata, da občutim te stroje tudi v realnem času. Sim rigi so moj portal v svet dirkanja.</p>
-            </div>
-
-            <div class="video-grid reveal">
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/bogBYkPymfQ" title="THE CREW MOTORFEST Lamborghini Revuelto" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Lamborghini Revuelto – The Crew Motorfest</h4>
-                        <p>60fps gameplay z ikoničnim V12 hibridnim hypercarjem.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/mWPDASNdunA" title="McLaren P1 Free Roam" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>McLaren P1 – Free Roam</h4>
-                        <p>Legenda hibridnega hypercarja v odprtem svetu.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/wwrqV_udkcE" title="LaFerrari Race" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>LaFerrari – Race</h4>
-                        <p>Dirka z najbolj ekskluzivnim Ferrarijem vseh časov.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gallery reveal" style="margin-top: 3rem;">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=400&q=80" alt="Supercar 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80" alt="Supercar 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80" alt="Supercar 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=400&q=80" alt="Supercar 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555215695-3004980adbf8?w=400&q=80" alt="Supercar 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400&q=80" alt="Supercar 6"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=400&q=80" alt="Supercar 7"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80" alt="Supercar 8"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GAMING -->
-    <section id="gaming" class="section-gaming">
-        <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">Gaming & Virtual Reality</span>
-                <h2>Igralni svetovi in sim racing</h2>
-                <p>Od The Crew Motorfest do GTA, od sim rigov do VR – igranje je umetnost in tehnologija hkrati.</p>
-            </div>
-
-            <div class="desc-block reveal">
-                <h3>Sim Rigs, VR in Gaming Setups</h3>
-                <p>Sim racing je zame več kot igra – je trening, strast in tehnološki izziv. Sim rigi z dirkalnimi volani, pedalami in motion platformami ustvarjajo občutek pravega dirkanja. Virtualna realnost pa odpira popolnoma nove dimenzije doživljanja iger in ustvarjanja.</p>
-                <p>Gaming setupi so podaljšek osebnosti – od minimalističnih Apple setupov do RGB polnih man cave prostorov. Vsak detajl šteje.</p>
-            </div>
-
-            <div class="cards-grid reveal">
-                <div class="card">
+            <div class="cards-grid">
+                <a href="tehnologija.html" class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80" alt="Tehnologija"></div>
+                    <div class="card-body"><h3>Tehnologija</h3><p>Apple ekosistem, AI, pametne naprave in inovacije.</p></div>
+                </a>
+                <a href="superavti.html" class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="Superavti"></div>
+                    <div class="card-body"><h3>Superavti</h3><p>McLaren, Ferrari, Lamborghini + videi iz The Crew Motorfest.</p></div>
+                </a>
+                <a href="gaming.html" class="card">
                     <div class="card-img"><img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&q=80" alt="Gaming"></div>
-                    <div class="card-body"><h3>Gaming</h3><p>The Crew Motorfest, GTA, racing in adventure igre v 60fps.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=600&q=80" alt="VR"></div>
-                    <div class="card-body"><h3>Virtual Reality</h3><p>Potopitev v nove svetove z VR očali in motion trackingom.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&q=80" alt="Sim Racing"></div>
-                    <div class="card-body"><h3>Sim Rigs</h3><p>Profesionalni dirkalni simulatorji – volan, pedala, cockpit.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=600&q=80" alt="Consoles"></div>
-                    <div class="card-body"><h3>Gaming Consoles</h3><p>PlayStation, Xbox in prihodnost konzol naslednje generacije.</p></div>
-                </div>
-            </div>
-
-            <div class="gallery reveal">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=400&q=80" alt="Game 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&q=80" alt="Game 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&q=80" alt="Game 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=400&q=80" alt="Game 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&q=80" alt="Game 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511882150382-421056c89033?w=400&q=80" alt="Game 6"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- KREATIVNOST -->
-    <section id="kreativnost" class="section-creative">
-        <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">Kreativnost & Oblikovanje</span>
-                <h2>Vizualna ustvarjalnost</h2>
-                <p>Fotografija, filmsko ustvarjanje, Deejaying, VJing, moda, oblikovanje in igrače tehnologije – vse je del mojega ustvarjalnega laboratorija.</p>
-            </div>
-
-            <div class="desc-block reveal">
-                <h3>Neskončna soba ustvarjanja</h3>
-                <p>Verjamem v vesolje domišljije in otroškega čudenja. Ustvarjalni prostor je živ organizem, ki se prilagaja notranjemu svetu. Tukaj se preteklost in prihodnost prepletata v večnem trenutku prisotnosti.</p>
-                <p>Od fotografije in filmmakinga, preko Deejayinga in VJinga, do oblikovanja prostorov in inovacij – vsaka disciplina hrani drugo. Toys and Tech so moj način, da ohranim otroško radovednost.</p>
-            </div>
-
-            <div class="cards-grid reveal">
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Photography"></div>
-                    <div class="card-body"><h3>Photography</h3><p>Ujemanje trenutkov, svetlobe in zgodb skozi objektiv.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Filmmaking"></div>
-                    <div class="card-body"><h3>Filmmaking</h3><p>Pripovedovanje zgodb s kamero, svetlobo in montažo.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&q=80" alt="DJ"></div>
-                    <div class="card-body"><h3>Deejaying & VJing</h3><p>Pioneer oprema, ritem, svetloba in vizualna umetnost v živo.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Fashion"></div>
-                    <div class="card-body"><h3>Moda</h3><p>Estetika, izraz in osebni slog kot podaljšek identitete.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Design"></div>
-                    <div class="card-body"><h3>Oblikovanje</h3><p>Notranje oblikovanje, produktni dizajn in prostorske vizije.</p></div>
-                </div>
-                <div class="card">
-                    <div class="card-img"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80" alt="Toys Tech"></div>
-                    <div class="card-body"><h3>Toys & Tech</h3><p>Igrače tehnologije, zbirateljstvo in otroška radovednost.</p></div>
-                </div>
-            </div>
-
-            <div class="gallery reveal">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1452587923054-e8e2c174f365?w=400&q=80" alt="Creative 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=80" alt="Creative 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80" alt="Creative 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80" alt="Creative 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80" alt="Creative 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&q=80" alt="Creative 6"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Creative 7"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="Creative 8"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- APPLE -->
-    <section id="apple" class="section-apple">
-        <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">Apple Ekosistem</span>
-                <h2>Eleganca in moč</h2>
-                <p>iPhone, iPad, iMac, Mac Mini, Mac Studio – Apple ni le znamka, temveč filozofija ustvarjanja.</p>
-            </div>
-
-            <div class="desc-block reveal">
-                <h3>Revolucija Apple Silicon</h3>
-                <p>Od prehoda z Intela na lastne čipe M-serije – Apple je spremenil industrijo. M5, M6 in naprej prinašajo lokalno umetno inteligenco, neverjetno zmogljivost in baterijsko življenje, ki je bilo prej nepredstavljivo.</p>
-                <p>Moj ekosistem je zgrajen okoli teh naprav: iPhone kot mobilni center, iPad za ustvarjanje, Mac za resno delo in AI, vse povezano v brezhibno celoto.</p>
-            </div>
-
-            <div class="gallery reveal">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&q=80" alt="Apple 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&q=80" alt="Apple 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?w=400&q=80" alt="Apple 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?w=400&q=80" alt="Apple 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&q=80" alt="Apple 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&q=80" alt="Apple 6"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ASTRONOMIJA -->
-    <section id="astronomija" class="section-space">
-        <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">Astronomija & Innovation</span>
-                <h2>Pogled v vesolje</h2>
-                <p>Od nočnega neba do futurističnih vizij – astronomija hrani radovednost, inovacije pa oblikujejo jutri.</p>
-            </div>
-
-            <div class="desc-block reveal">
-                <h3>Vesolje domišljije</h3>
-                <p>Astronomija me uči ponižnosti in radovednosti. Ko gledam v zvezde, se spomnim, kako majhni smo – in kako velike so naše možnosti. Innovation ni le tehnologija, temveč način razmišljanja: nenehno iskanje boljših rešitev, novih možnosti in pogum za sanje.</p>
-            </div>
-
-            <div class="gallery reveal">
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=80" alt="Space 1"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80" alt="Space 2"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400&q=80" alt="Space 3"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=400&q=80" alt="Space 4"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1465101162946-4377e57745c3?w=400&q=80" alt="Space 5"></div>
-                <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516339909940-e0f74f52b46e?w=400&q=80" alt="Space 6"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- YOUTUBE -->
-    <section id="youtube">
-        <div class="section-inner">
-            <div class="section-header reveal">
-                <span class="section-label">YouTube</span>
-                <h2>Moji videoposnetki</h2>
-                <p>Več o tehnologiji, gamingu, superavtih in ustvarjalnosti najdeš na mojem kanalu.</p>
-            </div>
-
-            <div class="video-grid reveal">
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/s7v5PznMZFY" title="Tomaž Dolar: Moderni digitalni polimat" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Moderni digitalni polimat in renesančni ustvarjalec</h4>
-                        <p>Predstavitev moje filozofije in identitete.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/vRWpTRweT8k" title="Apple Mac računalniki" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Apple Mac računalniki: Zmogljivost in umetna inteligenca</h4>
-                        <p>Pogled na moč Apple Silicon.</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/jYCH2lHyLkA" title="Neskončna soba ustvarjanja" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h4>Neskončna soba ustvarjanja</h4>
-                        <p>Vesolje domišljije in otroškega čudenja.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;" class="reveal">
-                <a href="https://www.youtube.com/@TomazDolar07" target="_blank" class="btn btn-primary">Oglej si celoten kanal →</a>
+                    <div class="card-body"><h3>Gaming & Igralne konzole</h3><p>Sim rigs, VR, Gaming Setups, PlayStation in več.</p></div>
+                </a>
+                <a href="kreativnost.html" class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Kreativnost"></div>
+                    <div class="card-body"><h3>Kreativnost</h3><p>Photography, Filmmaking, Deejaying, Moda, Oblikovanje, Toys & Tech.</p></div>
+                </a>
+                <a href="apple.html" class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=600&q=80" alt="Apple"></div>
+                    <div class="card-body"><h3>Apple Ekosistem</h3><p>iPhone, iPad, iMac, Mac Mini, Mac Studio in Silicon.</p></div>
+                </a>
+                <a href="astronomija.html" class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80" alt="Astronomija"></div>
+                    <div class="card-body"><h3>Astronomija & Innovation</h3><p>Vesolje, radovednost in prihodnost.</p></div>
+                </a>
             </div>
         </div>
     </section>
@@ -965,24 +208,5 @@
         <p>© 2026 Tomaž Dolar · Digitalni polimat & soustvarjalec</p>
         <p style="margin-top: 0.5rem;"><a href="https://www.youtube.com/@TomazDolar07" target="_blank">YouTube</a></p>
     </footer>
-
-    <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Reveal on scroll
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        reveals.forEach(el => observer.observe(el));
-    </script>
 </body>
 </html>
