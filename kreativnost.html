@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kreativnost | Tomaž Dolar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#000; --text:#f5f5f7; --text-secondary:#a1a1a6; --accent:#ec4899; --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.08); }
+        *{margin:0;padding:0;box-sizing:border-box} html{scroll-behavior:smooth}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+        .bg-animation{position:fixed;inset:0;z-index:-2;background:#000;overflow:hidden}
+        .bg-animation::before{content:'';position:absolute;width:150%;height:150%;top:-25%;left:-25%;background:radial-gradient(circle at 30% 30%,rgba(236,72,153,.12) 0%,transparent 40%),radial-gradient(circle at 70% 70%,rgba(219,39,119,.08) 0%,transparent 40%);animation:bgMove 25s ease-in-out infinite alternate}
+        @keyframes bgMove{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-5%,3%) scale(1.05)}100%{transform:translate(5%,-3%) scale(1.02)}}
+        .orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.22;z-index:-1;animation:float 20s ease-in-out infinite}
+        .orb-1{width:360px;height:360px;background:#ec4899;top:10%;left:12%}
+        .orb-2{width:260px;height:260px;background:#db2777;bottom:18%;right:10%;animation-delay:-5s}
+        @keyframes float{0%,100%{transform:translate(0,0)}33%{transform:translate(30px,-40px)}66%{transform:translate(-20px,20px)}}
+        nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;background:rgba(0,0,0,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.25rem;font-weight:600;color:var(--text);text-decoration:none}.logo span{color:#2997ff}
+        .nav-links{display:flex;gap:1.25rem;list-style:none}
+        .nav-links a{color:var(--text-secondary);text-decoration:none;font-size:.9rem;transition:color .2s}
+        .nav-links a:hover,.nav-links a.active{color:var(--text)}
+        .hero{padding:8rem 2rem 3rem;text-align:center}
+        .hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;letter-spacing:-.03em;margin-bottom:1rem;background:linear-gradient(180deg,#fff,#a1a1a6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero p{color:var(--text-secondary);font-size:1.2rem;max-width:700px;margin:0 auto 2rem}
+        .section{padding:3rem 2rem 5rem;max-width:1400px;margin:0 auto}
+        .desc{background:var(--card);border:1px solid var(--border);border-radius:24px;padding:2.5rem;margin-bottom:3rem}
+        .desc h2{font-size:1.6rem;margin-bottom:1rem}
+        .desc p{color:var(--text-secondary);margin-bottom:1rem;font-size:1.05rem}
+        .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem}
+        .card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .3s}
+        .card:hover{transform:translateY(-6px)}
+        .card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+        .card-body{padding:1.25rem}.card-body h3{margin-bottom:.4rem}.card-body p{color:var(--text-secondary);font-size:.95rem}
+        .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+        .gallery-item{aspect-ratio:1;border-radius:16px;overflow:hidden;border:1px solid var(--border)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .gallery-item:hover img{transform:scale(1.08)}
+        footer{padding:3rem 2rem;border-top:1px solid var(--border);text-align:center;color:var(--text-secondary);font-size:.9rem}
+        footer a{color:#2997ff;text-decoration:none}
+        @media(max-width:800px){.nav-links{display:none}}
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">Tomaž <span>Dolar</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Domov</a></li>
+                <li><a href="tehnologija.html">Tehnologija</a></li>
+                <li><a href="superavti.html">Superavti</a></li>
+                <li><a href="gaming.html">Gaming</a></li>
+                <li><a href="kreativnost.html" class="active">Kreativnost</a></li>
+                <li><a href="apple.html">Apple</a></li>
+                <li><a href="astronomija.html">Astronomija</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Kreativnost & Oblikovanje</h1>
+        <p>Fotografija, filmmaking, Deejaying & VJing, moda, oblikovanje in Toys & Tech – vse je del mojega ustvarjalnega laboratorija.</p>
+    </div>
+
+    <div class="section">
+        <div class="desc">
+            <h2>Neskončna soba ustvarjanja</h2>
+            <p>Verjamem v vesolje domišljije in otroškega čudenja. Ustvarjalni prostor je živ organizem, ki se prilagaja notranjemu svetu. Tukaj se preteklost in prihodnost prepletata v večnem trenutku prisotnosti.</p>
+            <p>Od fotografije in filmmakinga, preko Deejayinga in VJinga, do oblikovanja prostorov in inovacij – vsaka disciplina hrani drugo. Toys and Tech so moj način, da ohranim otroško radovednost in veselje do odkrivanja.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="Photo"><div class="card-body"><h3>Photography</h3><p>Ujemanje trenutkov in svetlobe.</p></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=600&q=80" alt="Film"><div class="card-body"><h3>Filmmaking</h3><p>Pripovedovanje zgodb s kamero.</p></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&q=80" alt="DJ"><div class="card-body"><h3>Deejaying & VJing</h3><p>Pioneer oprema, ritem in vizualna umetnost.</p></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80" alt="Moda"><div class="card-body"><h3>Moda</h3><p>Estetika in osebni slog.</p></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="Design"><div class="card-body"><h3>Oblikovanje</h3><p>Notranje oblikovanje in prostorske vizije.</p></div></div>
+            <div class="card"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80" alt="Toys"><div class="card-body"><h3>Toys & Tech</h3><p>Igrače tehnologije in radovednost.</p></div></div>
+        </div>
+
+        <h2 style="margin:2rem 0 1.5rem;font-size:1.5rem">Galerija – 15 slik</h2>
+        <div class="gallery">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1452587923054-e8e2c174f365?w=400&q=80" alt="1"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=400&q=80" alt="2"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&q=80" alt="3"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&q=80" alt="4"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80" alt="5"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&q=80" alt="6"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="7"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" alt="8"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=400&q=80" alt="9"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&q=80" alt="10"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&q=80" alt="11"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&q=80" alt="12"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400&q=80" alt="13"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1459749411175-037692940d3a?w=400&q=80" alt="14"></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1470229722913-7c0e2dfb8e95?w=400&q=80" alt="15"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Tomaž Dolar · <a href="index.html">Domov</a> · <a href="https://www.youtube.com/@TomazDolar07" target="_blank">YouTube</a></p>
+    </footer>
+</body>
+</html>
